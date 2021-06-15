@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <!-- Navbar Starts -->
+    <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand font-weight-bold" href="#" style="color:rgb(255, 255, 255);">CUSTOMER ARITTITION PREDICTION</a>
+    
+    </nav>
+    
+        
+        <form action="{{ url_for('predict')}}" method="post">
+	    <h1>Enter the Information Below and find if a Customer will Churn out or not</h1>
+	    
+    <div class="contentform">
+    	<div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+
+        
+    	<div class="leftcontact">
+			      <div class="form-group">
+			        <p>Totaldependents</p>
+			        <span class="icon-case"></span>
+              <select class="form-select"  name="TotalDependents" id="TotalDependents" required="required" aria-label="Default select example">
+                <option selected>--select-Totaldependents--</option>
+                <option value="Totaldependents_Yes">Yes</option>
+                <option value="Totaldependents_No">No</option>
+            </select>
+       </div> 
+
+            <div class="form-group">
+            <p>Aged(Greater then 50=yes,less then 50=no) <span>*</span></p>
+            <span class="icon-case"></span>
+            <select class="form-select" name="Aged" id="Aged" required="required" aria-label="Default select example">
+              <option selected>--select-Age--</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+          </select>
+                <div class="validation"></div>
+			</div>
+
+      <div class="form-group">
+        <p>Gender of Customer:  <span>*</span></p>	
+        <span class="icon-case"></span>
+                  <select class="form-select" name="sex" id="sex" required="required" aria-label="Default select example">
+                    <object selected >--select-Gender--</object>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <div class="validation"></div>
+              </select>
+                  
+        </div>
+        <div class="form-group">
+          <p>ServiceSpan </p>
+          
+          <label name="ServiceSpan"  required="required" >
+            <input type="text" class="form-control" id="ServiceSpan" name="ServiceSpan" placeholder="Between 1 to 100">
+    
+        </select>
+    </div> 
+        <div class="form-group">
+          <p>Mobile_Service</p>
+          <span class="icon-case"></span>
+          <select class="form-select" name="MobileService" id="MobileService" required="required" aria-label="Default select example">
+            <option selected>--select Mobile service--</option>
+            <option value="Mobile_Service_Yes">Yes</option>
+            <option value="Mobile_Service_No">No</option>
+        </select>
+   </div> 
+
+   <div class="form-group">
+    <p>Married Status</p>
+    <span class="icon-case"></span>
+    <select class="form-select" name="Married" id="Married" required="required" aria-label="Default select example">
+      <option selected>--select Married Status--</option>
+      <option value="Married_Status_Yes">Yes</option>
+      <option value="Married_Status_No">No</option>
+  </select>
+
+</div> 
+<div class="form-group">
+  <p>CyberProtection</p>
+  <span class="icon-case"></span>
+  <select class="form-select" name="CyberProtection" id="CyberProtection" required="required" aria-label="Default select example">
+    <option selected>--select CyberProtection--</option>
+    <option value="CyberProtection_Yes">Yes</option>
+    <option value="CyberProtection_No">No</option>
+</select>
+</div> 
+
+			</div>
+	<div class="rightcontact">	
+    <div class="form-group">
+      <p>Hardware_Support</p>
+      <span class="icon-case"></span>
+      <select class="form-select" name="HardwareSupport" id="HardwareSupport" required="required" aria-label="Default select example">
+        <option selected>--select Hardware Support--</option>
+        <option value="Hardware_Support_Yes">Yes</option>
+        <option value="Hardware_Support_No">No</option>
+    </select>
+</div> 
+
+<div class="form-group">
+  <p>Technical Assistance</p>
+  <span class="icon-case"></span>
+  <select class="form-select" name="TechnicalAssistance" id="TechnicalAssistance" required="required" aria-label="Default select example">
+    <option selected>--select Technical Assistant--</option>
+    <option value="Technical_Assistance_Yes">Yes</option>
+    <option value="Technical_Assistance_No">No</option>
+</select>
+</div> 
+
+<div class="form-group">
+  <p>Film Subscription</p>
+  <span class="icon-case"></span>
+  <select class="form-select" name="FilmSubscription" id="FilmSubscription" required="required" aria-label="Default select example">
+    <option selected>--select Film Subscription--</option>
+    <option value="Film_Subscription_Yes">Yes</option>
+    <option value="Film_Subscription_No">No</option>
+</select>
+</div> 
+
+			
+
+			<div class="form-group">
+			<p>4G Service: <span>*</span></p>
+			<span class="icon-case"></span>
+                <select class="form-select" name="GService" id="GService" required="required" aria-label="Default select example">
+                  <option selected>--select 4G Service--</option>
+                <option value="GService_No">GService_No</option>
+                <option value="GService_Satellite_Broadband">GService_Satellite_Broadband</option>
+                <option value="GService_Wifi_Broadband">GService_Wifi_Broadband</option>
+            </select>
+            <div class="validation"></div>
+			</div>
+
+      <div class="form-group">
+        <p>Settlement Process: <span>*</span></p>
+        <span class="icon-case"></span>
+                  <select class="form-select" name="SettlementProcess" id="SettlementProcess"  required="required" aria-label="Default select example">
+                    <option selected>--select Settlement Process--</option>
+                  <option value="SettlementProcess_Card">SettlementProcess_Card</option>
+                  <option value="SettlementProcess_Bank">SettlementProcess_Bank</option>
+                  <option value="SettlementProcess_Check">SettlementProcess_Check</option>
+                  <option value="SettlementProcess_Electronic">SettlementProcess_Electronic</option>
+              </select>
+              <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <p>QuarterlyPayment </p>
+          
+          <label name="QuarterlyPayment"  required="required">
+            <input type="text" class="form-control" id="QuarterlyPayment" name="QuarterlyPayment" placeholder="QuaterPayment">
+
+        </select>
+    </div> 
+
+    <div class="form-group">
+      <p>GrandPayment </p>
+      
+      <label name="GrandPayment"  required="required">
+        <input type="text" class="form-control" id="GrandPayment" name="GrandPayment" placeholder="GrandPayment">
+
+    </select>
+</div> 
+			
+		
+			
+	</div>
+	</div>
+<button  type="submit " class="btn btn-lg btn-info mb-5 ml-5" style="box-shadow: 0 4px 15px 0 rgba(54, 70, 69, 0.75); background-image: linear-gradient(to right, #63a1bb, #6f7c94, #b3bdc0, #5c6f8b);">Predict whether the Customer will leave the company or not?</button>
+	
+</form>	
+    
+   
+   
+
+
+        <br><br><h3 class="alert alert-primary text-center" role="alert">{{ prediction_text }}<h3>
+    </div>
+    <!-- Footer -->
+        <!-- Footer -->
+    <div class="unique-color-dark mt-4 white-text " style="background-color: #1c2331 !important;">
+      <div class="blue-gradient">
+        <div class="container">
+          <!-- Grid row-->
+          <div class="row py-3 d-flex align-items-center">
+            <!-- Grid column -->
+            <div
+              class="col-md-6 col-lg-5 text-center text-md-left"
+            >
+              <h6 class="mb-0 text-white">Developed by Pooja Sharma   <a href="https://github.com/Poojasharma1301"><i class="ml-5 fa fa-github fa-2x" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/pooja-sharma-42448b1b1/"><i class="ml-5 fa fa-linkedin fa-2x" aria-hidden="true"></i></a></h6>
+            </div>
+            <!-- Grid column -->
+
+            
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row-->
+        </div>
+      </div>
+
+
+
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: sans-serif;
+    background-image: url(https://images.unsplash.com/photo-1462206092226-f46025ffe607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100%!important;
+}
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar {
+    background: rgb(31, 32, 36) !important;
+}
+.navbar-nav li {
+    padding: 0 10px;
+}
+.navbar-nav li a {
+    color: rgb(196, 191, 191) !important;
+    font-weight: 600;
+}
+.navbar-toggler {
+    outline: none !important;
+}
+ #banner {
+         background: rgb(139, 151, 156) !important;
+         color: rgb(219, 83, 83);
+         padding-top: 5%;
+      }
+      .promo-title {
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: 100px;
+      }
+      body {
+  margin: auto;
+  
+  font-family: 'Open Sans', sans-serif;
+}
+ .info p {
+  text-align:center;
+  color: #999;
+  text-transform:none;
+  font-weight:600;
+  font-size:15px;
+  margin-top:2px
+}
+
+.info i {
+  color:#F6AA93;
+}
+form h1 {
+  font-size: 18px;
+  background:rgb(136, 136, 177) none repeat scroll 0% 0%;
+  color: rgb(9, 9, 14);
+  padding: 22px 25px;
+  border-radius: 5px 5px 0px 0px;
+  margin: auto;
+  text-shadow: none; 
+  text-align:left
+}
+
+form {
+  border-radius: 5px;
+  max-width:700px;
+  width:100%;
+  margin: 5% auto;
+  background-color: #f1ebeb;
+  overflow: hidden;
+}
+
+p span {
+  color: #F00;
+}
+
+p {
+  margin: 0px;
+  font-weight: 500;
+  line-height: 2;
+  color:#333;
+}
+
+h1 {
+  text-align:center; 
+  color: #666;
+  text-shadow: 1px 1px 0px #FFF;
+  margin:50px 0px 0px 0px
+}
+
+input {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  width: 75%;
+  height: 40px;
+  float: left;
+  padding: 0px 15px;
+}
+
+a {
+  text-decoration:inherit
+}
+
+textarea {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #EEE;
+  margin: 0;
+  width: 75%;
+  height: 130px; 
+  float: left;
+  padding: 0px 15px;
+}
+
+.form-group {
+  overflow: hidden;
+  clear: both;
+}
+
+.icon-case {
+  width: 15px;
+  float: left;
+  border-radius: 5px 5px 5px 5px;
+  background:#9aa9c7;
+  height:22px;
+  position: relative;
+  text-align: center;
+  line-height:40px;
+}
+
+i {
+  color:#555;
+}
+
+.contentform {
+  padding: 40px 30px;
+}
+
+.bouton-contact{
+  background-color: #81BDA4;
+  color: #FFF;
+  text-align: center;
+  width: 100%;
+  border:0;
+  padding: 17px 25px;
+  border-radius: 0px 0px 5px 5px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.leftcontact {
+  width:49.5%; 
+  float:left;
+  border-right: 1px dotted #CCC;
+  box-sizing: border-box;
+  padding: 0px 15px 0px 0px;
+}
+
+.rightcontact {
+  width:49.5%;
+  float:right;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 15px;
+}
+
+.validation {
+  display:none;
+  margin: 0 0 10px;
+  font-weight:400;
+  font-size:13px;
+  color: #DE5959;
+}
+
+#sendmessage {
+  border:1px solid #fff;
+  display:none;
+  text-align:center;
+  margin:10px 0;
+  font-weight:600;
+  margin-bottom:30px;
+  background-color: #EBF6E0;
+  color: #5F9025;
+  border: 1px solid #B3DC82;
+  padding: 13px 40px 13px 18px;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
+}
+
+#sendmessage.show,.show  {
+  display:block;
+}
+        
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>
