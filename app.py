@@ -24,73 +24,74 @@ def predict():
 
         TotalDependents = request.form['TotalDependents']
         if(TotalDependents == 'Yes'):
-            Totaldependents_Yes = 1
+            TotalDependents = 1
         
         else:
-            Totaldependents_No = 0
+            TotalDependents = 0
         
         Aged = request.form['Aged']
         if(Aged == 'Yes'):
-            Yes = 1
+            Aged = 1
             
         elif(Aged == 'No'):
-            Aged = 1
+            Aged = 0
         else:
-            No = 0
+            Aged = 0
             
         
         sex = request.form['sex']
+        print(sex)
         if(sex == 'Male'):
-            Male = 1
+            sex = 1
         
         else:
-            Male = 0
+            sex = 0
 
         MobileService = request.form['MobileService']
         if(MobileService == 'Yes'):
-            Mobile_Service_Yes = 1
+            MobileService = 1
             
         else:
-            Mobile_Service_Yes = 0
+            MobileService = 0
             
         Married = request.form['Married']
         if(Married == 'Yes'):
-            Married_Status_Yes = 1
+            Married = 1
          
         else:
-            Married_Status_Yes = 0
+            Married = 0
             
 
         CyberProtection = request.form['CyberProtection']
         if(CyberProtection == 'Yes'):
-            CyberProtection_Yes = 1
+            CyberProtection = 1
             
         else:
-            CyberProtection_Yes = 0
+            CyberProtection = 0
             
 
         HardwareSupport = request.form['HardwareSupport']
         if(HardwareSupport == 'Yes'):
-            Hardware_Support_Yes = 1
+            HardwareSupport = 1
             
         else:
-            Hardware_Support_Yes = 0
+            HardwareSupport = 0
             
 
         TechnicalAssistance = request.form['TechnicalAssistance']
         if(TechnicalAssistance == 'Yes'):
-            Technical_Assistance_Yes = 1
+            TechnicalAssistance = 1
             
         else:
-            Technical_Assistance_Yes = 0
+            TechnicalAssistance = 0
             
 
         FilmSubscription = request.form['FilmSubscription']
         if(FilmSubscription == 'Yes'):
-            Film_Subscription_Yes = 1
+            FilmSubscription = 1
             
         else:
-            Film_Subscription_Yes = 0
+            FilmSubscription = 0
             
         
         
@@ -133,15 +134,16 @@ def predict():
             SettlementProcess_Check = 0
             SettlementProcess_Bank = 0
             SettlementProcess_Electronic = 1
-
-        prediction = model.predict([[sex ,Aged,	Married	,TotalDependents,ServiceSpan,MobileService,CyberProtection,
+        print("Donne")
+        prediction = model.predict([[sex ,Aged, Married	,TotalDependents,ServiceSpan,MobileService,CyberProtection,
         HardwareSupport,TechnicalAssistance,FilmSubscription,QuarterlyPayment,GrandPayment,GService_No,
         GService_Satellite_Broadband, GService_Wifi_Broadband ,SettlementProcess_Bank,SettlementProcess_Card,
         SettlementProcess_Check,SettlementProcess_Electronic]])
+        print("Done")
         if prediction==1:
-             return render_template('index.html',prediction_text="The Customer will leave the bank")
+             return render_template('index.html',prediction_text="The Customer will leave the Company")
         else:
-             return render_template('index.html',prediction_text="The Customer will not leave the bank")
+             return render_template('index.html',prediction_text="The Customer will not leave the Company")
                 
 if __name__=="__main__":
     app.run(debug=True)

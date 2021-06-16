@@ -20,159 +20,202 @@
     </nav>
     
         
-        <form action="{{ url_for('predict')}}" method="post">
+        <form action="{{ url_for('predict')}}" method="post" class=" needs-validation" novalidate>
 	    <h1>Enter the Information Below and find if a Customer will Churn out or not</h1>
 	    
     <div class="contentform">
-    	<div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+    	
 
         
     	<div class="leftcontact">
-			      <div class="form-group">
-			        <p>Totaldependents</p>
-			        <span class="icon-case"></span>
-              <select class="form-select"  name="TotalDependents" id="TotalDependents" required="required" aria-label="Default select example">
-                <option selected>--select-Totaldependents--</option>
+			      <div class="form-group" >
+              <span class="icon-case"></span>
+              <label for="validationCustom01" class="form-label">Totaldependents</label>
+			        
+              <select class="form-select"  name="TotalDependents" id="validationCustom01" required="required" >
+                <option selected disabled value="">--select-Totaldependents--</option>
                 <option value="Totaldependents_Yes">Yes</option>
                 <option value="Totaldependents_No">No</option>
             </select>
+            <div class="invalid-feedback">
+              Please Enter Totaldependents
+            </div>
        </div> 
 
             <div class="form-group">
-            <p>Aged(Greater then 50=yes,less then 50=no) <span>*</span></p>
             <span class="icon-case"></span>
-            <select class="form-select" name="Aged" id="Aged" required="required" aria-label="Default select example">
-              <option selected>--select-Age--</option>
+            <label for="validationCustom02" class="form-label">Aged(Greater then 50=yes,less then 50=no)</label>
+            <select class="form-select" name="Aged" id="validationCustom02" required="required" aria-label="Default select example">
+              <option selected disabled value="">--select-Age--</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
           </select>
-                <div class="validation"></div>
+          <div class="invalid-feedback">
+            Please Enter Age
+          </div>
+          
 			</div>
 
       <div class="form-group">
-        <p>Gender of Customer:  <span>*</span></p>	
         <span class="icon-case"></span>
-                  <select class="form-select" name="sex" id="sex" required="required" aria-label="Default select example">
-                    <object selected >--select-Gender--</object>
+        <label for="validationCustom03" class="form-label">Gender of Customer:</label><br>
+                  <select class="form-select" name="sex" id="validationCustom03" required="required" aria-label="Default select example">
+                    <option selected disabled value="" >--select-Gender--</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <div class="validation"></div>
               </select>
+              <div class="invalid-feedback">
+                Please Enter Gender
+              </div>
                   
         </div>
         <div class="form-group">
-          <p>ServiceSpan </p>
-          
-          <label name="ServiceSpan"  required="required" >
-            <input type="text" class="form-control" id="ServiceSpan" name="ServiceSpan" placeholder="Between 1 to 100">
-    
-        </select>
-    </div> 
-        <div class="form-group">
-          <p>Mobile_Service</p>
+        
           <span class="icon-case"></span>
-          <select class="form-select" name="MobileService" id="MobileService" required="required" aria-label="Default select example">
-            <option selected>--select Mobile service--</option>
+          <label name="ServiceSpan"  required="required" for="validationCustom04">ServiceSpan</label>
+            <input type="text" class="form-control" id="validationCustom04" name="ServiceSpan" placeholder="Between 1 to 100">
+            
+        </select>
+        <div class="invalid-feedback">
+          Please Enter ServiceSpan
+        </div>
+    </div> 
+        
+    <div class="form-group">
+          
+          <span class="icon-case"></span>
+          <label for="validationCustom05" class="form-label">MobileService</label>
+          <select class="form-select" name="MobileService" id="validationCustom05" required="required" aria-label="Default select example">
+            <option selected disabled value="">--select Mobile service--</option>
             <option value="Mobile_Service_Yes">Yes</option>
             <option value="Mobile_Service_No">No</option>
         </select>
+        <div class="invalid-feedback">
+          Please Enter MobileService
+        </div>
    </div> 
 
    <div class="form-group">
-    <p>Married Status</p>
+  
     <span class="icon-case"></span>
-    <select class="form-select" name="Married" id="Married" required="required" aria-label="Default select example">
-      <option selected>--select Married Status--</option>
+    <label for="validationCustom06" class="form-label">Married Status</label>
+    <select class="form-select" name="Married" id="validationCustom06" required="required" aria-label="Default select example">
+      <option selected disabled value="">--select Married Status--</option>
       <option value="Married_Status_Yes">Yes</option>
       <option value="Married_Status_No">No</option>
   </select>
-
+  <div class="invalid-feedback">
+    Please Enter MarriedStatus
+  </div>
+    
 </div> 
 <div class="form-group">
-  <p>CyberProtection</p>
   <span class="icon-case"></span>
-  <select class="form-select" name="CyberProtection" id="CyberProtection" required="required" aria-label="Default select example">
-    <option selected>--select CyberProtection--</option>
+  <label for="validationCustom07" class="form-label">CyberProtection</label>
+  <select class="form-select" name="CyberProtection" id="validationCustom07" required="required" aria-label="Default select example">
+    <option selected disabled value="">--select CyberProtection--</option>
     <option value="CyberProtection_Yes">Yes</option>
     <option value="CyberProtection_No">No</option>
 </select>
+<div class="invalid-feedback">
+  Please Enter CyberProtection
+</div>
 </div> 
 
 			</div>
 	<div class="rightcontact">	
     <div class="form-group">
-      <p>Hardware_Support</p>
       <span class="icon-case"></span>
-      <select class="form-select" name="HardwareSupport" id="HardwareSupport" required="required" aria-label="Default select example">
-        <option selected>--select Hardware Support--</option>
+      <label for="validationCustom08" class="form-label">HardwareSupport</label>
+      <select class="form-select" name="HardwareSupport" id="validationCustom08" required="required" aria-label="Default select example">
+        <option selected disabled value="">--select Hardware Support--</option>
         <option value="Hardware_Support_Yes">Yes</option>
         <option value="Hardware_Support_No">No</option>
     </select>
+    <div class="invalid-feedback">
+      Please Enter HardwareSupport
+    </div>
 </div> 
 
 <div class="form-group">
-  <p>Technical Assistance</p>
   <span class="icon-case"></span>
-  <select class="form-select" name="TechnicalAssistance" id="TechnicalAssistance" required="required" aria-label="Default select example">
-    <option selected>--select Technical Assistant--</option>
+  <label for="validationCustom09" class="form-label">Technical Assistance</label>
+  <select class="form-select" name="TechnicalAssistance" id="validationCustom09" required="required" aria-label="Default select example">
+    <option selected disabled value="">--select Technical Assistant--</option>
     <option value="Technical_Assistance_Yes">Yes</option>
     <option value="Technical_Assistance_No">No</option>
 </select>
+<div class="invalid-feedback">
+  Please Enter TechnicalAssistance
+</div>
 </div> 
 
 <div class="form-group">
-  <p>Film Subscription</p>
   <span class="icon-case"></span>
-  <select class="form-select" name="FilmSubscription" id="FilmSubscription" required="required" aria-label="Default select example">
-    <option selected>--select Film Subscription--</option>
+  <label for="validationCustom10" class="form-label">Film Subscription</label>
+  <select class="form-select" name="FilmSubscription" id="validationCustom10" required="required" aria-label="Default select example">
+    <option selected disabled value="">--select Film Subscription--</option>
     <option value="Film_Subscription_Yes">Yes</option>
     <option value="Film_Subscription_No">No</option>
 </select>
+<div class="invalid-feedback">
+  Please Enter FilmSubscription
+</div>
 </div> 
 
 			
 
 			<div class="form-group">
-			<p>4G Service: <span>*</span></p>
+			
 			<span class="icon-case"></span>
-                <select class="form-select" name="GService" id="GService" required="required" aria-label="Default select example">
-                  <option selected>--select 4G Service--</option>
+      <label for="validationCustom011" class="form-label">4G Service</label>
+                <select class="form-select" name="GService" id="validationCustom011" required="required" aria-label="Default select example">
+                  <option selected disabled value="">--select 4G Service--</option>
                 <option value="GService_No">GService_No</option>
                 <option value="GService_Satellite_Broadband">GService_Satellite_Broadband</option>
                 <option value="GService_Wifi_Broadband">GService_Wifi_Broadband</option>
             </select>
-            <div class="validation"></div>
+            <div class="invalid-feedback">
+              Please Enter 4GService
+            </div>
 			</div>
 
       <div class="form-group">
-        <p>Settlement Process: <span>*</span></p>
+      
         <span class="icon-case"></span>
-                  <select class="form-select" name="SettlementProcess" id="SettlementProcess"  required="required" aria-label="Default select example">
-                    <option selected>--select Settlement Process--</option>
+        <label for="validationCustom012" class="form-label">Settlement Process</label>
+                  <select class="form-select" name="SettlementProcess" id="validationCustom012"  required="required" aria-label="Default select example">
+                    <option selected disabled value="">--select Settlement Process --</option> 
                   <option value="SettlementProcess_Card">SettlementProcess_Card</option>
                   <option value="SettlementProcess_Bank">SettlementProcess_Bank</option>
                   <option value="SettlementProcess_Check">SettlementProcess_Check</option>
                   <option value="SettlementProcess_Electronic">SettlementProcess_Electronic</option>
               </select>
-              <div class="validation"></div>
+              <div class="invalid-feedback">
+                Please Enter Sattlement Process
+              </div>
         </div>
 
         <div class="form-group">
-          <p>QuarterlyPayment </p>
-          
-          <label name="QuarterlyPayment"  required="required">
-            <input type="text" class="form-control" id="QuarterlyPayment" name="QuarterlyPayment" placeholder="QuaterPayment">
-
-        </select>
+          <span class="icon-case"></span>
+          <label name="QuarterlyPayment"  required="required" for="validationCustom013"> QuarterlyPayment</label>
+            <input type="text" class="form-control" id="validationCustom013" name="QuarterlyPayment" placeholder="QuaterPayment">
+            </select>
+            <div class="invalid-feedback">
+              Please Enter QuarterlyPayment
+            </div>
     </div> 
 
     <div class="form-group">
-      <p>GrandPayment </p>
-      
-      <label name="GrandPayment"  required="required">
-        <input type="text" class="form-control" id="GrandPayment" name="GrandPayment" placeholder="GrandPayment">
-
+      <span class="icon-case"></span>
+      <label name="GrandPayment"  required="required" for='validationCustom014'>GrandPayment</label>l
+        <input type="text" class="form-control" id="validationCustom014" name="GrandPayment" placeholder="GrandPayment">
+        
     </select>
+    <div class="invalid-feedback">
+      Please Enter GrandPayment
+    </div>
 </div> 
 			
 		
@@ -182,12 +225,15 @@
 <button  type="submit " class="btn btn-lg btn-info mb-5 ml-5" style="box-shadow: 0 4px 15px 0 rgba(54, 70, 69, 0.75); background-image: linear-gradient(to right, #63a1bb, #6f7c94, #b3bdc0, #5c6f8b);">Predict whether the Customer will leave the company or not?</button>
 	
 </form>	
+
+
+
     
    
    
 
 
-        <br><br><h3 class="alert alert-primary text-center" role="alert">{{ prediction_text }}<h3>
+        <br><br><h3 class="alert  text-center" style="background-color: #6c87bd !important;" role="alert">{{ prediction_text }}<h3>
     </div>
     <!-- Footer -->
         <!-- Footer -->
@@ -392,24 +438,7 @@ i {
   color: #DE5959;
 }
 
-#sendmessage {
-  border:1px solid #fff;
-  display:none;
-  text-align:center;
-  margin:10px 0;
-  font-weight:600;
-  margin-bottom:30px;
-  background-color: #EBF6E0;
-  color: #5F9025;
-  border: 1px solid #B3DC82;
-  padding: 13px 40px 13px 18px;
-  border-radius: 3px;
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
-}
 
-#sendmessage.show,.show  {
-  display:block;
-}
         
 
 
@@ -417,6 +446,33 @@ i {
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    <script>(function () {
+      'use strict'
+    
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+    
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()</script>
+
+    
+
+
+
+
+  </body>
 
 </html>
